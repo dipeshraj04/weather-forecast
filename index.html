@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="topbar">
+        <div class="brand" aria-label="Weather Forecast home">
+            <div class="brand-mark" aria-hidden="true">☀️</div>
+            <div>
+                <p class="eyebrow">Live weather for everyone</p>
+                <h1>Weather Forecast</h1>
+            </div>
+        </div>
+        <div class="topbar-actions">
+            <button id="theme-toggle" type="button" aria-label="Toggle theme">Light</button>
+            <button id="unit-toggle" type="button" aria-label="Toggle temperature units">°C</button>
+        </div>
+    </header>
+
+    <main id="main" class="layout">
+        <section class="panel" aria-labelledby="controls-heading">
+            <div class="panel-header">
+                <h2 id="controls-heading">Your controls</h2>
+                <p class="muted">Gen Z ready, parent proof, fully accessible.</p>
+            </div>
+            <form id="search-form" class="control-grid" autocomplete="on">
+                <label class="field">
+                    <span class="label-text">City</span>
+                    <input id="city-input" name="city" type="search" inputmode="search" placeholder="Search any city" aria-label="City name" required>
+                </label>
+                <div class="control-buttons">
+                    <button type="submit" class="primary">Search</button>
+                    <button id="use-location" type="button" class="ghost">Use my location</button>
+                </div>
+            </form>
+            <div class="status" role="status" aria-live="polite" id="status-text"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="now-heading">
+            <div class="panel-header">
+                <h2 id="now-heading">Now</h2>
+                <div class="timestamp" id="live-date-time" aria-live="polite"></div>
+            </div>
+            <div class="now-grid">
+                <div class="now-primary">
+                    <p class="location" id="location">—</p>
+                    <p class="condition" id="condition">Waiting for data…</p>
+                    <p class="temperature" id="temperature">--°</p>
+                    <p class="feels" id="feels-like">Feels like --°</p>
+                </div>
+                <div class="now-meta">
+                    <p><span class="label">High</span><span id="high">--°</span></p>
+                    <p><span class="label">Low</span><span id="low">--°</span></p>
+                    <p><span class="label">Humidity</span><span id="humidity">--%</span></p>
+                    <p><span class="label">Wind</span><span id="wind">--</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="forecast-heading">
+            <div class="panel-header">
+                <h2 id="forecast-heading">Next days</h2>
+                <p class="muted">Auto-refreshing in real time — no reloads.</p>
+            </div>
+            <div id="forecast-cards" class="forecast-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Built for every generation. Data by Visual Crossing.</p>
+        <p>&copy; 2026 Weather Forecast. All rights reserved.</p>
+    </footer>
+</body>
+</html>
